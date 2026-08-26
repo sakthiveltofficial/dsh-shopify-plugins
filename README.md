@@ -1,6 +1,6 @@
 # dsh-shopify · Shopify Plugin for DeepSeek Harness
 
-![DSH-SHOPIFY — The Shopify Capability for DeepSeek Harness](docs/assets/dsh-shopify-banner.svg)
+![DSH-SHOPIFY — The Shopify Capability for DeepSeek Harness](docs/assets/dsh-shopify-banner.png)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
