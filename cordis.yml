@@ -1,0 +1,33 @@
+# @shopify/dsh-shopify — profile patch layer.
+#
+# This file is a HOST-PLANE composition patch (top-level YAML array of loader
+# patch entries, exactly like a profile's cordis.patch.yml). The Shopify plugin
+# publishes no services — it only consumes the host `tools` registry — so it
+# needs no isolate realm and can sit loose here: its tools register once
+# process-wide and are visible to every agent, exactly like `tool-fs` or
+# `tool-jobs` in the shipped presets.
+#
+# To use inside an AGENT PRESET instead, copy the row under `config:` into your
+# preset's agent.cordis.yml (see examples/agent.cordis.yml).
+#
+# Secrets are env-var REFERENCES resolved per operation through ctx.credentials
+# (process env, provider store, .env) — never literal tokens. Literal config
+# values (shopDomain / accessToken) are also supported for quick setups; they
+# take precedence over the references.
+
+- insert:
+    - id: shopify
+      name: '@shopify/dsh-shopify'
+      config:
+        # ── Admin API credentials (refs resolve via ctx.credentials, then process.env) ──
+        # SHOPIFY_SHOP_DOMAIN: 'my-store.myshopify.com' (or 'my-store')
+        # SHOPIFY_ADMIN_API_TOKEN: admin API access token from a custom app
+        #   (fallback: SHOPIFY_ACCESS_TOKEN)
+        shopDomainRef: SHOPIFY_SHOP_DOMAIN
+        accessTokenRef: SHOPIFY_ADMIN_API_TOKEN
+        # ── optional literal overrides ──────────────────────────────────────
+        # shopDomain: ''
+        # accessToken: ''
+        # ── runtime defaults ────────────────────────────────────────────────
+        apiVersion: '2025-01'
+        timeoutMs: 30000

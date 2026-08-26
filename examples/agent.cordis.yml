@@ -1,0 +1,16 @@
+# Mount the Shopify plugin inside an AGENT PRESET (agent.cordis.yml).
+#
+# The Shopify plugin publishes no services, so — like the Gmail plugin — it
+# does NOT need a `cordis:group` with an `isolate` realm. It registers its
+# tools into the host `tools` registry (per-session layer), so a single loose
+# row is the whole story.
+#
+# Place this row anywhere in your agent preset's top-level list:
+
+- id: shopify
+  name: '@shopify/dsh-shopify'
+  config:
+    shopDomainRef: SHOPIFY_SHOP_DOMAIN
+    accessTokenRef: SHOPIFY_ADMIN_API_TOKEN
+    apiVersion: '2025-01'
+    timeoutMs: 30000
