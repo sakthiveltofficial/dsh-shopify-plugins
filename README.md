@@ -15,7 +15,7 @@ A complete, production-ready **Shopify plugin for [DeepSeek Harness](https://git
 ## 🤖 LLM-readable summary
 
 - **What:** a single Cordis plugin that extends DSH agents with 210+ `shopify_*` tools over the Shopify Admin API.
-- **Install:** `dsh plugin --profile web add github:<you>/dsh-shopify-plugins`, then add one row to your profile patch (or agent preset) — see [Install](#-install).
+- **Install:** `dsh plugin --profile web add github:sakthiveltofficial/dsh-shopify-plugins`, then add one row to your profile patch (or agent preset) — see [Install](#-install).
 - **Tools:** `shopify_list_products`, `shopify_get_order`, `shopify_list_orders`, `shopify_search_customers`, `shopify_set_inventory_level`, `shopify_create_fulfillment`, `shopify_create_price_rule`, `shopify_set_metafields`, `shopify_graphql_admin_execute`, `shopify_run_bulk_operation_query`, and 200 more — full catalog in the [tool table](#-tool-catalog).
 - **Auth:** Admin API access token (custom app) — no OAuth redirect needed. Credentials are **never stored in config**: env-var references resolved per operation via `ctx.credentials` (`SHOPIFY_SHOP_DOMAIN` + `SHOPIFY_ADMIN_API_TOKEN`, fallback `SHOPIFY_ACCESS_TOKEN`).
 - **Runtime requirements:** DeepSeek Harness, Node.js ≥ 20 (global `fetch`), and a Shopify store with a custom app that has the Admin API scopes your workflows need.
@@ -61,7 +61,7 @@ A complete, production-ready **Shopify plugin for [DeepSeek Harness](https://git
 ### 1. Install the package from your GitHub repository
 
 ```sh
-dsh plugin --profile web add github:<you>/dsh-shopify-plugins
+dsh plugin --profile web add github:sakthiveltofficial/dsh-shopify-plugins
 ```
 
 This installs the `@shopify/dsh-shopify` plugin package into the profile (the repo root is the package — no build step needed).
